@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { gettemperaments, postdog } from "../../Actions/actions";
+import styles from './form.module.css'
+import { NavLink } from "react-router-dom";
 
 export default function Form() {
   const temperaments = useSelector((state) => state.temperaments);
@@ -87,46 +89,57 @@ const handlerdelete=(e)=>{
 }
 
   return (
-    <form onSubmit={(e) => handlesubmit(e)}>
+  <div className={styles.container}>
+    <div><NavLink to={"/home"}> <button className={styles.backtohome}>BACK TO HOME</button></NavLink></div>
+    <form  className={styles.formcontainer}>
       <h1>Create a new breed</h1>
 
-      <div>
-        <div>
-        <label>breed name :</label>
+      <div className={styles.boxcontainer}>
+        <div className={styles.divspan}>
+          <div>
+        <label>breed name: </label>
         <input
+        className={error.nombre? styles.errorinput : styles.input}
           type="text"
           name={"nombre"}
           value={form.nombre}
           onChange={(e) => handlechange(e)}
         />
-        {error.nombre && <span>{error.nombre}</span>}
         </div>
-        <div>
-        <label>life span:</label>
+        {error.nombre && <span className={styles.errorspan}>{error.nombre}</span>}
+        </div>
+        <div className={styles.divspan}>
+          <div>
+        <label>life span: </label>
         <input
+         className={error.edadestimada? styles.errorinput : styles.input}
           type="text"
           name={"edadestimada"}
           value={form.edadestimada}
           onChange={(e) => handlechange(e)}
           placeholder="Example: 5 - 6 years"
-        />
-        {error.edadestimada && <span>{error.edadestimada}</span>}
+        /></div>
+        {error.edadestimada && <span className={styles.errorspan}>{error.edadestimada}</span>}
         </div>
-        <div>
-        <label>image url:</label>
+        <div className={styles.divspan}>
+          <div>
+        <label>image url: </label>
         <input
+         className={error.imagen? styles.errorinput : styles.input}
           type="text"
           name={"imagen"}
           value={form.imagen}
           onChange={(e) => handlechange(e)}
-          placeholder="https://dogui.com/something.jpg"
-        />
-        {error.imagen && <span>{error.imagen}</span>}
+          placeholder="https://dogui.com/dog.jpg"
+        /></div>
+        {error.imagen && <span className={styles.errorspan}>{error.imagen}</span>}
         </div>
-        <div>
-        <label>weight (kg) :</label>
+        <div className={styles.divspan}>
+          <div>
+        <label>weight (kg): </label>
         
         <input
+         className={!weight.minWeight && error.peso? styles.errorinput : styles.input}
           type="text"
           name='minWeight'
           value={weight.minWeight}
@@ -135,18 +148,22 @@ const handlerdelete=(e)=>{
         />
         <span > - </span>
         <input
+         className={!weight.maxWeight && error.peso? styles.errorinput : styles.input}
           type="text"
+          required
           name='maxWeight'
           value={weight.maxWeight}
           placeholder='max weight'
           onChange={(e) => handleWeight(e)}
-        />
-        {error.peso && <span>{error.peso}</span>}
+        /></div>
+        {error.peso && <span className={styles.errorspan}>{error.peso}</span>}
         </div>
-        <div>
-        <label>height (cm) :</label>
+        <div className={styles.divspan}>
+          <div>
+        <label>height (cm): </label>
         
         <input
+         className={!height.minHeight && error.altura? styles.errorinput : styles.input}
           type="text"
           name='minHeight'
           placeholder='min height'
@@ -155,67 +172,71 @@ const handlerdelete=(e)=>{
         />
         <span> - </span>
         <input
+         className={!height.maxHeight && error.altura? styles.errorinput : styles.input}
           type="text"
           name='maxHeight'
           placeholder='max height'
           value={height.maxHeight}
           onChange={(e) => handleHeight(e)}
-        />
-        {error.altura && <span>{error.altura}</span>}
+        /></div>
+        {error.altura && <span className={styles.errorspan}>{error.altura}</span>}
 
         </div>
-        <div>
-          <label>Temperaments:</label>
-          <select name="temperamentos" onChange={(e)=>handlechangetemp(e)} required id="temperamentos">
+        <div className={styles.divspan}>
+          <div className={styles.tempcontainer}>
+          <label>Temperaments: </label>
+          <select className={styles.selected}  name="temperamentos" onChange={(e)=>handlechangetemp(e)} required id="temperamentos">
             <option key={'default'} value={'Temperaments'} selected disabled>select options</option> 
-          {temperaments ? temperaments.map((t)=>
+          {temperaments.length ? temperaments.map((t)=>
           <option value={t.nombre} key={t.id}>{t.nombre}</option>
           ) : 
-          <option key={'loading'}>Loading</option>}
+          <option key={'loading'}>Loading...</option>}
           </select>
+          <div className={styles.spancontainer}>
           { 
             form.temperamentos?.map((e) => {
                         return(
-                            <div key={e} style={{display: 'flex', justifyContent:'space-around', width:'100px'}} >
-                            <span>{e}</span>
-                            <span 
-                            // className={xSpanCard} 
+                            <div className={styles.spantemp} key={e} style={{display: 'flex', justifyContent:'space-around', width:'100px'}} >
+                            <span >{e}</span>
+                            <button 
+                             className={styles.deletebutton} 
                             onClick={()=>handlerdelete( {target:{value:`${e}`}}) }>
-                            x
-                            </span> 
+                            X
+                            </button> 
                             </div>
                         )
                     })
-                }
-                {error.temperamentos && <span>{error.temperamentos}</span>}
+                }</div></div>
+                {error.temperamentos && <span className={styles.errorspan}>{error.temperamentos}</span>}
         </div>
-        <div>
-          <button type='submit'> Submit</button>
+        <div >
+          <button onClick={(e) => handlesubmit(e)}className={styles.button} type='submit'> Submit</button>
         </div>
       </div>
     </form>
+    </div>
   );
 };
 
 const validator =(form,weight,height)=>{
   const error={};
   if(form && !form.nombre){
-    error.nombre="campo obligatorio"
+    error.nombre="*campo obligatorio"
   }
    if(form && !form.imagen){
-    error.imagen="campo obligatorio"
+    error.imagen="*campo obligatorio"
   }
   if(form && !form.temperamentos.length){
-    error.temperamentos="campo obligatorio"
+    error.temperamentos="*campo obligatorio"
   }
    if(form && !form.edadestimada){
-    error.edadestimada="campo obligatorio"
+    error.edadestimada="*campo obligatorio"
   }
   if(weight && (!weight.minWeight || !weight.maxWeight)){
-    error.peso='campo obligatorio'
+    error.peso='*campo obligatorio'
   }
   if(height && (!height.minHeight || !height.maxHeight)){
-    error.altura='campo obligatorio'
+    error.altura='*campo obligatorio'
   }
   
   return error

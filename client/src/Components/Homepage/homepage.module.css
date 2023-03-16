@@ -1,0 +1,100 @@
+.dogcard{
+    display: grid;
+    grid-auto-rows: minmax(500px, auto);
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-gap: 8px; */
+    grid-column-gap: 0;
+    grid-row-gap: 50px;
+    padding: 50px 70px;
+
+}
+.searchcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inputsearch{
+    background-color: #ffb28e ;
+    color: #004b7b;
+    width: 150px;
+    height: 20px;
+    padding: 2px 5px;
+    border-radius: 7px 0px 0px 7px;
+    border: #008257 solid 1.5px;
+}
+.buttonsearch{
+    background-color: #008257;
+     border: #004b7b solid 1.5px;
+    color: #004b7b;
+    width: 30px;
+    height: 26.3px;
+    padding: 2px 5px;
+    border-radius: 0px 7px 7px 0px;
+   margin-left: 0em;
+    cursor: pointer;
+}
+.buttonsearch:hover{ 
+    border: #008257 solid 1.5px;
+   background-color: #004b7b ;
+}
+.resetbutton{
+    background-color: #8cb159;
+    border: #004b7b solid 1.5px;
+   color: #004b7b;
+   width: 100px;
+   font-weight: bolder;
+   height: 26.3px;
+   padding: 2px 5px;
+   border-radius: 7px ;
+  margin-left: 20px;
+   cursor: pointer;
+}
+.resetbutton:hover{
+    background-color: #004b7b;
+    color: #8cb159;
+}
+.allfilters{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.selectcontainer{
+    margin-top: 10px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.selected{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffb28e ;
+    color: #004b7b;
+    width: 170px;
+    height: 30px;
+    padding: 2px 5px;
+    border-radius: 7px;
+    border: #008257 solid 1.5px;
+}
+.create{
+   margin-bottom: 20px;
+    background-color: lightseagreen;
+    cursor: pointer;
+    border: #004b7b solid 1.5px;
+    border-radius: 8px;
+    
+   
+    
+}
+.create:hover{
+    background-color: #004b7b;
+    color: #ebebeb;
+}
+.gif{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transform: translate(-500px, -52px)
+}

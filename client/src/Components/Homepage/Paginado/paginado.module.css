@@ -1,0 +1,38 @@
+.nav_container{
+display: flex;
+justify-content: center;
+}
+.pbutton{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+border-radius: 15px;
+margin: 0px 2px;
+cursor: pointer;
+font-weight: bolder;
+border: solid 2px #004b7b;
+color: #008257;
+background-color: lightseagreen;
+}
+.pbutton:hover{
+    border: solid 2px lightseagreen ;
+color: #008257;
+background-color:#004b7b;
+}
+.activebutt{ 
+    text-align: center;
+    width: 30px;
+    height: 30px;
+border-radius: 15px;
+margin: 0px 2px;
+cursor: pointer;
+font-weight: bolder;
+    border: solid 2px lightseagreen ;
+    color: #008257;
+    background-color:#004b7b;
+}
+.ul_container{
+display: flex;
+list-style: none;
+justify-content: space-around;
+}

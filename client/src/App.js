@@ -19,7 +19,7 @@ function App() {
         <Route path={"/form"}>
           <Form />
         </Route>
-        <Route path={"/details"}>
+        <Route path={"/detail/:params"}>
           <Details />
         </Route>
       

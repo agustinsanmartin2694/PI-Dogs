@@ -1,0 +1,68 @@
+.container{
+    background-image: url("https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+margin-top: 0%;
+}
+.title{
+    margin-top: 0%;
+    padding-top: 50px;
+    color:  #004b7b;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    animation: moveText 2s infinite;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.paragraph{
+    transform: translate(-390px, 300px);
+    font-size:larger;
+    text-shadow: 2px 2px 2px #888;
+    color: rgb(15, 126, 121);
+}
+.start{
+    position: relative;
+    left: -400px;
+    top: 325px;
+    cursor: pointer;
+    background-color: rgb(15, 126, 121);
+    color: #004b7b;
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    animation-name: llamativo;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    /* transform: translate(-400px, 325px); */
+  }
+  .start:hover{
+    background-color: #004b7b;
+    color: rgb(15, 126, 121);
+  }
+
+  @keyframes llamativo {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

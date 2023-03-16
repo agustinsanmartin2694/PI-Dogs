@@ -23,6 +23,8 @@ async function getDBdogs() {
         peso: d.peso,
         imagen: d.imagen,
         temperamentos: d.temperaments?.map((d) => d.nombre),
+       
+
       };
     });
     return puppies;
@@ -36,15 +38,16 @@ async function getAPIdogs() {
     const info = await axios.get(
       `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
     );
+    console.log(info.data.filter(d=> d.weight.metric.includes('NaN')))
     const puppies = info.data?.map((d) => {
       return {
         ID: d.id,
         nombre: d.name,
         edadestimada: d.life_span,
         altura: d.height.metric,
-        peso: d.weight.metric,
+        peso: d.name==='Olde English Bulldogge'? '30': d.name==='Smooth Fox Terrier'? '8' : d.weight.metric,
         imagen: d.image.url,
-        temperamentos:d.temperament? d.temperament.split(', ') : 'No hay temperamentos registrados'
+        temperamentos:d.temperament? d.temperament.split(', ') : 'No temperaments registered'
       };
     });
 

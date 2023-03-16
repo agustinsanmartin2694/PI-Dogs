@@ -1,0 +1,139 @@
+.container{
+     background-image:url("https://wallpapercave.com/wp/wp4821782.jpg" );
+     display: flex;
+     flex-direction: column;
+width: 100%;
+height: 100vh;
+background-size: cover;
+background-position: center;
+}
+
+
+.formcontainer{
+    padding-top: 10%;
+    background-color:transparent;
+   transform: translate(-200px, 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxcontainer{
+    background-color: #8cb15996;
+    border-radius: 20px;
+    padding: 1rem;
+    border: 1.5px #008257 solid;
+    width: fit-content;
+    max-width: 900px;
+    text-align: start;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 1rem;
+    color: #004b7b;
+}
+.divspan{
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    background-color: #ffb28e ;
+    color: #004b7b;
+    width: 150px;
+    height: 20px;
+    padding: 2px 5px;
+    border-radius: 7px;
+    border: #008257 solid 1.5px;
+}
+.errorspan{
+    font-size: small;
+    font-weight: bold;
+    color: rgb(196, 3, 3);
+}
+
+.errorinput{
+    background-color: #fd6a6a ;
+    color: #004b7b;
+    width: 150px;
+    height: 20px;
+    padding: 2px 5px;
+    border-radius: 7px;
+    border: rgb(149, 1, 1) solid 1.5px;
+}
+.button{
+    cursor: pointer;
+    background-color: #004b7b;
+    border-radius: 10px;
+    color: #fce4bb;
+    border: 1.5px solid #fce4bb;
+    padding: 2px 5px ;
+    font-weight: 550;
+}
+.button:hover{
+    background-color: #fce4bb;
+    color: #004b7b;
+    border: 1.5px solid #004b7b;
+}
+.selected{
+    background-color: #ffb28e ;
+    color: #004b7b;
+    width: 150px;
+    height: 20px;
+    padding: 2px 5px;
+    border-radius: 7px;
+    border: #008257 solid 1.5px;
+}
+
+.spantemp{
+    background-color: lightseagreen ;
+    color: #004b7b;
+    width: 20%;
+    height: 20px;
+    padding: 2px 5px;
+    border-radius: 7px;
+    border: #008257 solid 1.5px;
+    font-size: small;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.spancontainer{
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.deletebutton{
+    background-color: red;
+    border-radius: 50%;
+    border: none;
+    width: 15px;
+    height:15px;
+    padding-left: 3.5%;
+    /* font-weight: bolder; */
+}
+.tempcontainer{
+    /* width: 100%; */
+    display: flex;
+align-items: baseline;
+justify-content: space-around;
+}
+.backtohome{
+    margin-top: 60px;
+    background-color: #dda67c;
+    cursor: pointer;
+    border: #004b7b solid 1.5px;
+    border-radius: 8px;
+    
+   
+    
+}
+.backtohome:hover{
+    background-color: #004b7b;
+    color: #ebebeb;
+}
